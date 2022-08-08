@@ -1,0 +1,133 @@
+trigger:
+  branches:
+    include:
+    - master
+
+variables:
+- name: packageVersion
+  value: '1.0.0'
+
+stages:
+  - stage: BuildApplication
+    jobs:
+      ##################
+      # BUILD SOLUTION #
+      ##################
+    - job: BuildApplication
+      pool:
+        vmImage: 'ubuntu-latest'
+      variables:
+      - name: buildPlatform
+        value: 'Any CPU'
+      - name: buildConfiguration
+        value: 'Release'      
+
+      steps:
+      - checkout: self
+
+      - task: UseDotNet@2
+        inputs:
+          packageType: 'sdk'
+          version: '7.x'
+
+      - task: DotNetCoreCLI@2
+        displayName: 'dotnet build sln'
+        inputs:
+          command: 'build'
+          projects: 'src/CatEncyclopedia.csproj'
+          configuration: '$(buildConfiguration)'
+      
+      - task: DotNetCoreCLI@2
+        displayName: 'Publish web project'
+        inputs:
+          command: publish
+          publishWebProjects: false
+          arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish-web'
+          projects: 'src/CatEncyclopedia.csproj'
+          zipAfterPublish: false
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish Pipeline Artifact: binary'
+        inputs:
+          targetPath: '$(Build.ArtifactStagingDirectory)/publish-web'
+          artifact: CatEncyclopedia
+          
+      - task: HelmInstaller@1
+        inputs:
+          helmVersionToInstall: 'latest'
+
+      - task: HelmDeploy@0
+        displayName: helm package cat-encyclopedia
+        inputs:
+          command: package
+          chartPath: helm/cat-encyclopedia
+          destination: helm-output
+          arguments: --version $packageVersion --app-version $packageVersion
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish Artifact: helm'
+        inputs:
+          targetPath: 'helm-output'
+          artifact: 'helm'
+
+      #####################
+      # BUILD LINUX IMAGE #
+      #####################
+    - job: BuildDockerImage
+      pool:
+        vmImage: 'ubuntu-latest'
+      dependsOn: 
+      - BuildApplication
+      steps:
+      - task: Docker@2
+        displayName: 'Build and publish Docker image'
+        inputs:
+          repository: 'demo-projects'
+          command: 'buildAndPush'
+          Dockerfile: 'docker/Dockerfile'
+  
+  ##############
+  # DEPLOYMENT #
+  ##############
+
+- stage: Deploy_Dev
+  jobs:
+  - deployment: Deploy_Dev_AKS
+    pool:
+      vmImage: 'ubuntu-latest'
+    dependsOn: 
+    - BuildApplication
+    - BuildDockerImage
+    environment: aks-1882-dev.cat-encyclopedia
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current 
+            artifact: helm
+            displayName: 'Download artifacts from build'
+
+          - checkout: self
+          
+          # This task can be enabled when Azure Container Registry is used instead of public container registry
+          #- task: KubernetesManifest@0
+          #  displayName: 'Deploy ACR secret'
+          #  inputs:
+          #    action: createSecret
+          #    namespace: 'cat-encyclopedia'
+          #    secretName: acrdevsecret
+          #    dockerRegistryEndpoint: 'DevACR'
+
+          - task: HelmInstaller@1
+            inputs:
+              helmVersionToInstall: 'latest'
+
+          - task: HelmDeploy@0          
+            displayName: 'Deploy cat-encyclopedia'
+            inputs:
+              command: upgrade 
+              namespace: 'cat-encyclopedia'
+              chartType: FilePath
+              chartPath: $(Pipeline.Workspace)/helm/cat-encyclopedia-$(packageVersion).tgz
+              arguments: '--create-namespace -f $(System.DefaultWorkingDirectory)/helm/cat-encyclopedia/values.yaml 
+                          --timeout 30m
