@@ -1,0 +1,1 @@
+This repo contains resources used for demos in my tech session \"Deploying microservices to AKS with Azure DevOps Environments and multi-staged Azure Pipelines\".
