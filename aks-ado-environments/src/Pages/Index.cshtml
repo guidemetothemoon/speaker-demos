@@ -6,4 +6,16 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome, Cat Enthusiast!🐈</h1>
+    <br/>
+    <h2>Cat Fact of the Day:</h2>
+    <br />
+    <p>@ViewData["CatFact"]</p>
+
+    <h2>Cat Image of the Day:</h2>
+    <br />   
+</div>
+<div class="d-flex justify-content-center">
+    <img src="@ViewData["CatImage"]"
+         alt="Photo of a cat" class="img-responsive img-rounded"
+         style="max-height: 500px; max-width: 500px;">
 </div>

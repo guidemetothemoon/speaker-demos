@@ -5,100 +5,85 @@ trigger:
 
 variables:
 - name: packageVersion
-  value: '1.0.0'
+  value: '1.0.1'
 
 stages:
-  - stage: BuildApplication
-    jobs:
-      ##################
-      # BUILD SOLUTION #
-      ##################
-    - job: BuildApplication
-      pool:
-        vmImage: 'ubuntu-latest'
-      variables:
-      - name: buildPlatform
-        value: 'Any CPU'
-      - name: buildConfiguration
-        value: 'Release'      
+- stage: Build
+  jobs:
+    ##################
+    # BUILD SOLUTION #
+    ##################
+  - job: BuildAndPackage
+    pool:
+      vmImage: 'ubuntu-latest'
+    #variables:
+    #- name: packageVersion
+    #  value: '1.0.1'
 
-      steps:
-      - checkout: self
+    steps:
+    - checkout: self
 
-      - task: UseDotNet@2
-        inputs:
-          packageType: 'sdk'
-          version: '7.x'
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '6.x'
+        includePreviewVersions: true
+        
+    - task: DotNetCoreCLI@2
+      displayName: 'dotnet build sln'
+      inputs:
+        command: 'build'
+        projects: 'src/CatEncyclopedia.csproj'
+        configuration: 'Release'
+    
+    - task: DotNetCoreCLI@2
+      displayName: 'Publish web project'
+      inputs:
+        command: publish
+        publishWebProjects: true
+        arguments: '--configuration Release --output docker/CatEncyclopedia'
+        zipAfterPublish: false
 
-      - task: DotNetCoreCLI@2
-        displayName: 'dotnet build sln'
-        inputs:
-          command: 'build'
-          projects: 'src/CatEncyclopedia.csproj'
-          configuration: '$(buildConfiguration)'
-      
-      - task: DotNetCoreCLI@2
-        displayName: 'Publish web project'
-        inputs:
-          command: publish
-          publishWebProjects: false
-          arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/publish-web'
-          projects: 'src/CatEncyclopedia.csproj'
-          zipAfterPublish: false
+    - task: Docker@2
+      displayName: 'Build and publish Docker image'
+      inputs:
+        containerRegistry: 'dockerhub-sc'
+        repository: 'guidemetothemoon/cat-encyclopedia'
+        command: 'buildAndPush'
+        Dockerfile: 'docker/Dockerfile'
+        tags: '$(packageVersion)'
 
-      - task: PublishPipelineArtifact@1
-        displayName: 'Publish Pipeline Artifact: binary'
-        inputs:
-          targetPath: '$(Build.ArtifactStagingDirectory)/publish-web'
-          artifact: CatEncyclopedia
-          
-      - task: HelmInstaller@1
-        inputs:
-          helmVersionToInstall: 'latest'
+    - task: HelmInstaller@1
+      inputs:
+        helmVersionToInstall: 'latest'
 
-      - task: HelmDeploy@0
-        displayName: helm package cat-encyclopedia
-        inputs:
-          command: package
-          chartPath: helm/cat-encyclopedia
-          destination: helm-output
-          arguments: --version $packageVersion --app-version $packageVersion
+    - task: HelmDeploy@0
+      displayName: helm package cat-encyclopedia
+      inputs:
+        command: package
+        chartPath: helm/cat-encyclopedia
+        destination: helm-output
+        arguments: '--version $(packageVersion) --app-version $(packageVersion)'
 
-      - task: PublishPipelineArtifact@1
-        displayName: 'Publish Artifact: helm'
-        inputs:
-          targetPath: 'helm-output'
-          artifact: 'helm'
+    - task: PublishPipelineArtifact@1
+      displayName: 'Publish Artifact: helm'
+      inputs:
+        targetPath: 'helm-output'
+        artifact: 'helm'
 
-      #####################
-      # BUILD LINUX IMAGE #
-      #####################
-    - job: BuildDockerImage
-      pool:
-        vmImage: 'ubuntu-latest'
-      dependsOn: 
-      - BuildApplication
-      steps:
-      - task: Docker@2
-        displayName: 'Build and publish Docker image'
-        inputs:
-          repository: 'demo-projects'
-          command: 'buildAndPush'
-          Dockerfile: 'docker/Dockerfile'
-  
+
   ##############
   # DEPLOYMENT #
   ##############
 
 - stage: Deploy_Dev
+  dependsOn:
+  - Build
   jobs:
   - deployment: Deploy_Dev_AKS
     pool:
       vmImage: 'ubuntu-latest'
-    dependsOn: 
-    - BuildApplication
-    - BuildDockerImage
-    environment: aks-1882-dev.cat-encyclopedia
+    environment: aks-1232-dev.cat-encyclopedia
     strategy:
       runOnce:
         deploy:
@@ -122,12 +107,12 @@ stages:
             inputs:
               helmVersionToInstall: 'latest'
 
-          - task: HelmDeploy@0          
+          - task: HelmDeploy@0
             displayName: 'Deploy cat-encyclopedia'
             inputs:
               command: upgrade 
               namespace: 'cat-encyclopedia'
+              releaseName: 'cat-encyclopedia'
               chartType: FilePath
               chartPath: $(Pipeline.Workspace)/helm/cat-encyclopedia-$(packageVersion).tgz
-              arguments: '--create-namespace -f $(System.DefaultWorkingDirectory)/helm/cat-encyclopedia/values.yaml 
-                          --timeout 30m
+              arguments: '--create-namespace --timeout 30m'
