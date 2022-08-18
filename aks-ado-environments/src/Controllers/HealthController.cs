@@ -9,7 +9,7 @@ namespace CatEncyclopedia.Controllers
         public HealthController(IHttpClientFactory httpClientFactory) =>
             _httpClientFactory = httpClientFactory;
 
-        [Route("Health/ok")]
+        [Route("ok")]
         public async Task<Stream> GetHealthyResponse()
         {
             var httpClient = _httpClientFactory.CreateClient();
@@ -25,7 +25,7 @@ namespace CatEncyclopedia.Controllers
             return await result.Content.ReadAsStreamAsync();
         }
 
-        [Route("Health/error")]
+        [Route("badhealth")]
         public IActionResult GetUnhealthyResponse()
         {
             return new BadRequestObjectResult("Unhealthy :-(");
