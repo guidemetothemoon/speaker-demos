@@ -5,9 +5,13 @@ namespace CatEncyclopedia.Controllers
     public class HealthController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private ILogger<HealthController> _logger;
 
-        public HealthController(IHttpClientFactory httpClientFactory) =>
+        public HealthController(IHttpClientFactory httpClientFactory, ILogger<HealthController> logger)
+        { 
             _httpClientFactory = httpClientFactory;
+            _logger = logger;
+        }
 
         [Route("ok")]
         public async Task<Stream> GetHealthyResponse()
@@ -28,6 +32,7 @@ namespace CatEncyclopedia.Controllers
         [Route("badhealth")]
         public IActionResult GetUnhealthyResponse()
         {
+            _logger.LogError("Something terrible happened...Can't load cats...Check your health probes!");
             return new BadRequestObjectResult("Unhealthy :-(");
         }
     }

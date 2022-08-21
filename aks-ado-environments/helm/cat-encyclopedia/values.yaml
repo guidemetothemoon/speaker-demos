@@ -4,7 +4,7 @@ replicaCount: 1
 
 image:
   repository: guidemetothemoon/cat-encyclopedia
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 serviceAccount:
   create: true
@@ -17,8 +17,9 @@ ingress:
   enabled: true
   annotations: 
     kubernetes.io/ingress.class: addon-http-application-routing
+    nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: cat-encyclopedia.<CLUSTER_SPECIFIC_DNS_ZONE>
+    - host: cat-encyclopedia.[AKS_CLUSTER_DNS_ZONE]
       paths:
         - path: /
           pathType: Prefix
