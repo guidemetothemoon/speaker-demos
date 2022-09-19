@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: chaos-nyan-cat-ingress
+  namespace: chaos-nyan-cat
+  annotations:
+    #kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: addon-http-application-routing
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: chaos-nyan-cat.[AKS_DNS_ZONE]
+    http:
+      paths:
+      - backend:
+          service:
+            name: chaos-nyan-cat
+            port:
+              number: 80
+        path: /
+        pathType: Prefix

@@ -1,0 +1,70 @@
+# Default values for kubeinvaders.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+config:
+  # target_namespace where kubeinvaders should be allowed to kill pods
+  target_namespace: "chaos-nyan-cat"
+  alienProximity: 10
+  hitsLimit: 1
+  updateTime: 0.5
+
+rbac:
+  # Specifies whether RBAC resources should be created
+  create: true
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: kubeinvaders
+
+clusterRole:
+  create: true
+  # The name of a cluster role to bind to; if not set and create is
+  # true, a name based on fullname is generated
+  name: kubeinvaders
+
+deployment:
+  replicaCount: 1
+  image:
+    repository: luckysideburn/kubeinvaders
+    tag: v1.9
+    pullPolicy: Always
+  extraEnv: []
+  # - name: FOO
+  #   value: "BAR"
+  extraVolumes: []
+  # - name: tmp
+  #   emptyDir: {}
+  extraVolumeMounts: []
+  # - name: tmp
+  #   mountPath: /usr/local/openresty
+  resources: {}
+  nodeSelector: {}
+  tolerations: []
+  securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  legacyIngress: false
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  hostName: "kubeinvaders.[AKS_DNS_ZONE]"
+  tls: {}
+
+# Use route_host only if ingress is disabled
+route_host: ""
+
+serviceMonitor:
+  enabled: false
