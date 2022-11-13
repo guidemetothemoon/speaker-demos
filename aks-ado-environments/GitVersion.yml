@@ -1,0 +1,5 @@
+mode: mainline
+increment: Patch
+assembly-versioning-scheme: MajorMinorPatch
+assembly-file-versioning-scheme: MajorMinorPatch
+update-build-number: true
