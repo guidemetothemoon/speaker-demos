@@ -5,7 +5,7 @@
 [KubeInvaders](https://github.com/lucky-sideburn/KubeInvaders)
 [Nyan Cat](https://github.com/guidemetothemoon/kube-nyan-cat)
 
-Deploy Kubernetes Goat to AKS:
+Deploy Nyan Cat demo application and KubeInvaders to AKS:
 - Update ```[AKS_DNS_ZONE]``` placeholder with DNS Zone for your AKS cluster in ```chaos-nyan-cat-ingress.yaml``` and ```kubeinvaders-values.yaml``` in ```kubernetes-deployment-templates``` folder
 - Use provided ```kubeinvaders-values.yaml``` in ```kubernetes-deployment-templates``` folder to install and expose KubeInvaders in AKS cluster with HTTP application routing add-on
 
