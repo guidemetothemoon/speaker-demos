@@ -26,7 +26,7 @@ This repo contains resources used for demos in my tech session **"Managed Kubern
 
 11. 
 
-12. 
+12. October 2022 report from RedHunt Labs on their findings of publicly exposed Kubernetes clusters and related components: [Thousands of Unsecured Kubernetes Clusters Exposed on the Internet — Wave 9](https://redhuntlabs.com/blog/unsecured-kubernetes-clusters-exposed.html)
 
 13. Shadowserver report on discovered open Kubernetes API Servers. [Over 380 000 open Kubernetes API servers](https://www.shadowserver.org/news/over-380-000-open-kubernetes-api-servers)
 
