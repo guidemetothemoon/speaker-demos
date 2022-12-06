@@ -14,9 +14,9 @@ This repo contains resources used for demos in my tech session **"DevSecOps for 
 
 5. Kubernetes Hardening Guide from National Security Agency and Cybersecurity and Infrastructure Security Agency: [Kubernetes Hardening Guide](https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF)
 
-6. OWASP Top 10 for securing docker-based container environment: [OWASP Docker Top 10](https://owasp.org/www-project-docker-top-10/)
+6. OWASP Top 10 for securing docker-based container environment: [OWASP Docker Top 10](https://owasp.org/www-project-docker-top-10/) and cheat sheet [Docker Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html)
 
-7. OWASP Top 10 for securing Kubernetes ecosystem: [OWASP Kubernetes Top Ten](https://owasp.org/www-project-kubernetes-top-ten/)
+7. OWASP Top 10 for securing Kubernetes ecosystem: [OWASP Kubernetes Top Ten](https://owasp.org/www-project-kubernetes-top-ten/) and cheat sheet: [Kubernetes Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Kubernetes_Security_Cheat_Sheet.html)
 
 8. MITRE ATT&CK® Matrix for Enterprise to secure container technologies: [Containers Matrix](https://attack.mitre.org/matrices/enterprise/containers/)
 
@@ -29,3 +29,5 @@ This repo contains resources used for demos in my tech session **"DevSecOps for 
 12. Shadowserver report on discovered open Kubernetes API Servers. [Over 380 000 open Kubernetes API servers](https://www.shadowserver.org/news/over-380-000-open-kubernetes-api-servers)
 
 13. Summary from Cyble Research Labs on threat hunting exercise findings in terms of publicly exposed Kubernetes clusters: [Organizations at risk of data breaches via misconfigured Kubernetes](https://blog.cyble.com/2022/06/27/exposed-kubernetes-clusters/)
+
+14. GitHub repo from where you can clone and run KubeStalk to scan your Kubernetes clusters for unwanted openings: [redhuntlabs/KubeStalk](https://github.com/redhuntlabs/kubestalk)
