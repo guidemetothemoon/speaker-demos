@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/nightly/aspnet:6.0-jammy-chiseled
+FROM mcr.microsoft.com/dotnet/nightly/aspnet:7.0-jammy-chiseled
 WORKDIR /App
 COPY CatEncyclopedia/src App/
 ENV PORT 8080

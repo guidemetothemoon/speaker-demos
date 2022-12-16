@@ -23,7 +23,7 @@ stages:
     - task: UseDotNet@2
       inputs:
         packageType: 'sdk'
-        version: '6.x'
+        version: '7.x'
         includePreviewVersions: true
         
     - task: gitversion/setup@0
