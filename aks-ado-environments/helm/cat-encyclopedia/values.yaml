@@ -6,6 +6,15 @@ image:
   repository: guidemetothemoon/cat-encyclopedia
   pullPolicy: Always
 
+securityContext:
+  runAsUser: 999
+  runAsNonRoot: true
+  privileged: false
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - all
+
 serviceAccount:
   create: true
 
