@@ -2,6 +2,22 @@
 
 This repo contains resources used for demos in my tech session **"Managed Kubernetes Service: Day Zero Survival Pack"**.
 
+# Session Q&A
+
+During the session at Pozitive Technologies 2022 virtual conference I have received following question:
+
+**"Is it worth to deploy simply web application(like advanced blog) with database in Kubernetes? How to prevent bugs on database like overwriting data? I suspect simple Semathors or locking in threads can't help us with this."**
+
+**Answer:** 
+
+When it comes to hosting databases in a Kubernetes cluster, it is possible, but it comes with challenges and considerations that you need to think of and evaluate towards your use case. Initially Kubernetes was created primarily for stateless workloads in order to provide orchestration, self-healing, scaling, high availability, etc for the applications. When it comes to databases, it often becomes a central component that your application relies on, and in most cases you would want it to be highly available and stable at all times. Hosting a database in Kubernetes increases the risk of potential disruptions. You will need to take full responsibility for managing, securing and scaling your databases vs. for example using a fully managed database service that cloud providers are offering. 
+
+You will need to look into the type of a database that you're using and how well it supports being deployed to a Kubernetes cluster. It should also support sharding, failover and replication, which is also crucial to what the question mentions regarding overwriting data. In order to avoid overwriting data with multiple replicas of the database you need to implement a replication strategy where a single database instance allows write operations while you have multiple database instances that allow read operations and are continuously synchronized with the master database, i.e. the database that the data is written to.
+
+To sum it up: if you're just starting out with adopting Kubernetes or have a very simple use case like a simple web application, I would recommend to start by hosting database instances externally, i.e. not in a Kubernetes cluster, but by implementing a managed database instance for example, like Azure SQL Managed Instance. Once you get more experience with operating workloads on Kubernetes, especially stateful workloads, and see the need and value of switching to hosting databases in Kubernetes, you can always do that at a later point.
+
+I would also recommend to check out this article which explains very well what are the challenges with running databases on Kubernetes and what considerations you need to take when planning for implementing it: [To run or not to run a database on Kubernetes: What to consider](https://cloud.google.com/blog/products/databases/to-run-or-not-to-run-a-database-on-kubernetes-what-to-consider)
+
 # Useful resources
 
 1. Security guideline for Kubernetes from Center for Internet Security: [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes)
