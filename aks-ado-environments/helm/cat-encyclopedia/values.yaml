@@ -6,12 +6,21 @@ image:
   repository: guidemetothemoon/cat-encyclopedia
   pullPolicy: Always
 
+securityContext:
+  runAsUser: 999
+  runAsNonRoot: true
+  privileged: false
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - all
+
 serviceAccount:
   create: true
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: true
