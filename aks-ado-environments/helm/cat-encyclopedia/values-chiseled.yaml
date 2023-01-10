@@ -5,6 +5,7 @@ replicaCount: 1
 image:
   repository: guidemetothemoon/cat-encyclopedia
   pullPolicy: Always
+  containerPort: 8080
 
 serviceAccount:
   create: true
@@ -12,6 +13,15 @@ serviceAccount:
 service:
   type: ClusterIP
   port: 8080
+
+securityContext:
+  runAsUser: 999
+  runAsNonRoot: true
+  privileged: false
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - all
 
 ingress:
   enabled: true

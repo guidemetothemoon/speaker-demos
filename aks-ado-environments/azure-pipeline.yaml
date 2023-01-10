@@ -58,6 +58,25 @@ stages:
         arguments: '--configuration Release --output docker/CatEncyclopedia'
         zipAfterPublish: false
 
+    - task: Bash@3
+      displayName: Lint Dockerfile with Hadolint for best practice compliance
+      inputs:
+        targetType: 'inline'
+        script: |        
+          echo 'Downloading Hadolint to lint Dockerfile...'
+          wget https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
+          chmod +x hadolint-Linux-x86_64
+          mv hadolint-Linux-x86_64 hadolint
+                  
+          echo 'Start Dockerfile lint...'
+          ./hadolint ./docker/Dockerfile -f sarif | jq > hadolint-scan.sarif
+    
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: Hadolint Dockerfile Scan'
+      inputs:
+        pathToPublish: 'hadolint-scan.sarif'
+        artifactName: 'CodeAnalysisLogs'
+
     - task: Docker@2
       displayName: 'Build and publish Docker image'
       inputs:
@@ -66,6 +85,16 @@ stages:
         command: 'buildAndPush'
         Dockerfile: 'docker/Dockerfile'
         tags: '$(GitVersion.SemVer)'
+    
+    - task: Docker@2
+      displayName: 'Build and publish Docker image for Chiseled Ubuntu Container'
+      inputs:
+        containerRegistry: 'dockerhub-sc'
+        repository: 'guidemetothemoon/cat-encyclopedia'
+        command: 'buildAndPush'
+        buildContext: '$(Build.SourcesDirectory)/docker'
+        Dockerfile: 'docker/chiseled/Dockerfile'
+        tags: '$(GitVersion.SemVer)-chiseled'
 
     - task: HelmInstaller@1
       inputs:
@@ -120,10 +149,22 @@ stages:
 
           - task: HelmDeploy@0
             displayName: 'Deploy cat-encyclopedia'
+            enabled: true
             inputs:
               command: upgrade 
               namespace: 'cat-encyclopedia'
               releaseName: 'cat-encyclopedia'
               chartType: FilePath
               chartPath: $(Pipeline.Workspace)/helm/cat-encyclopedia-$(packageVersion).tgz
-              arguments: '--install --timeout 2m'
+              arguments: '--install --timeout 2m -f $(Build.SourcesDirectory)/helm/cat-encyclopedia/values.yaml --set image.tag=$(packageVersion)'
+          
+          - task: HelmDeploy@0
+            displayName: 'Deploy cat-encyclopedia on Ubuntu Chiseled Container'
+            enabled: false # Enabled if you need to deploy CatEncyclopedia running on Ubuntu Chiseled containers
+            inputs:
+              command: upgrade
+              namespace: 'cat-encyclopedia'
+              releaseName: 'cat-encyclopedia'
+              chartType: FilePath
+              chartPath: $(Pipeline.Workspace)/helm/cat-encyclopedia-$(packageVersion).tgz
+              arguments: '--install --timeout 2m -f $(Build.SourcesDirectory)/helm/cat-encyclopedia/values-chiseled.yaml --set image.tag=$(packageVersion)-chiseled'
