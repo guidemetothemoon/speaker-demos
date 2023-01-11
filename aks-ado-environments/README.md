@@ -6,7 +6,9 @@ In this repo you can find:
 
 ```src``` 
 
-This folder contains source code for CatEncyclopedia application which is a lightweight .NET 7 web app that is filled with cat love :-)
+This folder contains source code for CatEncyclopedia application which is a lightweight .NET 7 web app that is filled with cat love [^1] :-)
+![image](https://user-images.githubusercontent.com/47773700/211924964-8429709f-9deb-4802-a851-b1fbcc39358a.png)
+
 
 ```docker``` 
 
@@ -35,7 +37,7 @@ Once the Helm chart if packaged to a ```.tgz``` file you can deploy it to a Kube
 
 ```helm upgrade --namespace cat-encyclopedia --install --wait --create-namespace --timeout 5m -f ./helm/cat-encyclopedia/values-chiseled.yaml --set image.tag=<app_version_of_your_choice>-chiseled cat-encyclopedia ./cat-encyclopedia-<app_version_of_your_choice>.tgz```
 
-```azure-pipeline.yaml``
+```azure-pipeline.yaml```
 
 This file contains Azure Pipelines build pipeline that builds CatEncyclopedia application, builds and publishes regular and hardened container image, packages Helm chart and deploys two instances of application based on the Helm chart with regular and hardened configuration files to an AKS cluster, with Azure DevOps Environments.
 
@@ -50,3 +52,5 @@ This file contains Azure Pipelines build pipeline that builds CatEncyclopedia ap
 3. Microsoft Docs - Azure DevOps Environments: [Deploy apps to environments](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops)
 
 4. AKS HTTP Application Routing add-on: [HTTP application routing](https://docs.microsoft.com/en-us/azure/aks/http-application-routing)
+
+[^1]: Cat picture taken from Google Picture Search.
