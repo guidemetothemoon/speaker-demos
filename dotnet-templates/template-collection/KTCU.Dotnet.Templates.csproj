@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>KTCU.Dotnet.Templates</PackageId>
+    <Title>KrisTheCodingUnicorn Dotnet Custom Templates</Title>
+    <Authors>kristhecodingunicorn</Authors>
+    <Description>Base templates to use when creating microservices and related components.</Description>
+    <PackageTags>dotnet-new;templates;ktcu</PackageTags>
+    <TargetFramework>net6.0</TargetFramework>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+</Project>
