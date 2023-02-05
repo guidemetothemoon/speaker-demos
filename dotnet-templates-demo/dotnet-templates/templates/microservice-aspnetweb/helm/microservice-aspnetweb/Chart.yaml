@@ -1,0 +1,6 @@
+apiVersion: v2
+name: microservice-aspnetweb
+description: A Helm chart for microservice-aspnetweb application
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "kristhecodingunicorn",
+    "classifications": [ "Common", "Security", "Microservice" ], 
+    "name": "Template for security scan of microservices",
+    "identity": "Microservice.CommonTemplate.Security",         
+    "shortName": "msvc-sec",
+    "tags": {
+      "type": "project"
+    },
+    "sourceName": "microservice-security",
+    "preferNameDirectory": false
+}

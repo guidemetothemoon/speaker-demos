@@ -1,0 +1,36 @@
+# Default values for microservice-aspnetweb.
+
+replicaCount: 1
+
+image:
+  repository: [DOCKER_ACCOUNT_NAME]/microservice-aspnetweb
+  pullPolicy: Always
+
+serviceAccount:
+  create: true
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  annotations: 
+    kubernetes.io/ingress.class: addon-http-application-routing
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: microservice-aspnetweb.[AKS_DNS_ZONE]
+      paths:
+        - path: /
+          pathType: Prefix
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: false
