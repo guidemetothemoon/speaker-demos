@@ -1,0 +1,42 @@
+steps:
+- task: PowerShell@2
+  displayName: 'Run Security Code Scan'  
+  inputs:
+    targetType: 'inline'
+    showWarnings: true
+    pwsh: true
+    script: |
+      dotnet tool install --global security-scan --version 5.6.6
+      $projectsToScan = Get-ChildItem -Path $(Build.SourcesDirectory)/microservice-security/src -Recurse -ErrorAction SilentlyContinue -Filter *.csproj  | Select-Object fullname
+      foreach($proj in $projectsToScan)
+      {
+          Write-Output "Scanning $($proj.FullName) ..."
+          security-scan $proj.FullName --excl-proj=**/*Test*/** --cwe --export=sast-results.sarif
+      }
+      exit 0
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: Security Code Scan'
+  inputs:
+    pathToPublish: 'sast-results.sarif'
+    artifactName: 'CodeAnalysisLogs'  
+            
+- task: dependency-check-build-task@6
+  displayName: 'OWASP Dependency Check'
+  inputs:
+    projectName: 'microservice-security'
+    scanPath: '$(Build.SourcesDirectory)/**/*.dll'
+    suppressionPath: '$(Build.SourcesDirectory)/microservice-security/owasp-depcheck-suppression.xml'
+    failOnCVSS: 8
+    format: 'XML, HTML, JSON, JUNIT'
+    enableExperimental: true
+    dependencyCheckVersion: '7.1.2'
+
+- task: PublishTestResults@2
+  displayName: 'Publish OWASP security scan results'
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'dependency-check/*junit.xml'
+    searchFolder: '$(Common.TestResultsDirectory)'
+    testRunTitle: 'Dependency Check'
+    buildConfiguration: 'Release'
