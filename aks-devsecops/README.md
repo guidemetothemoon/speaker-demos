@@ -31,3 +31,11 @@ This repo contains resources used for demos in my tech session **"DevSecOps for 
 13. Summary from Cyble Research Labs on threat hunting exercise findings in terms of publicly exposed Kubernetes clusters: [Organizations at risk of data breaches via misconfigured Kubernetes](https://blog.cyble.com/2022/06/27/exposed-kubernetes-clusters/)
 
 14. GitHub repo from where you can clone and run KubeStalk to scan your Kubernetes clusters for unwanted openings: [redhuntlabs/KubeStalk](https://github.com/redhuntlabs/kubestalk)
+
+15. Kubernetes Pod Security Standards that define three different policies to broadly cover the security spectrum - from highly-permissive to highly-restrictive: [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
+
+16. MITRE CVE registry search filtered for Kubernetes: [MITRE - Kubernetes CVE Records](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes)
+
+17. Official Kubernetes CVE feed - a community maintained list of official CVEs announced by the Kubernetes Security Response Committee: [Kubernetes - Official CVE Feed](https://kubernetes.io/docs/reference/issues-security/official-cve-feed/)
+
+18. Cloud Native Security model overview for Kubernetes which defines a model of thinking about Kubernetes security in the context of Cloud Native Security: [Overview of Cloud Native Security](https://kubernetes.io/docs/concepts/security/overview/)
