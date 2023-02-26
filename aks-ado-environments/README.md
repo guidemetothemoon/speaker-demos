@@ -43,14 +43,21 @@ This file contains Azure Pipelines build pipeline that builds CatEncyclopedia ap
 
 # Useful resources
 
-1. Blog post series on Continuous Delivery to AKS with Azure DevOps Environments:
+1. Azure DevOps SaaS registration for a free account: [Azure DevOps](https://azure.microsoft.com/en-us/products/devops/)
+2. Azure DevOps labs to get started with Azure DevOps services: [Azure DevOps Labs](https://azuredevopslabs.com/)
+
+3. Blog post series on Continuous Delivery to AKS with Azure DevOps Environments:
     * Part 1: [Continuous Delivery to AKS With Azure DevOps Environments - Part 2](https://kristhecodingunicorn.com/post/k8s_ado_envs-1)
     * Part 2: [Continuous Delivery to AKS With Azure DevOps Environments - Part 1](https://kristhecodingunicorn.com/post/k8s_ado_envs-2)
 
-2. Script for migration of Kubernetes resources to a new Azure DevOps Environment: https://github.com/guidemetothemoon/div-dev-resources/tree/main/scripts/kubernetes/ado-environments
+4. Tech tip on re-using Azure DevOps Environment efficiently across pipelines: [Re-Using Azure DevOps Environment Efficiently Across Multiple Pipelines](https://kristhecodingunicorn.com/techtips/ado_env_as_var/)'
 
-3. Microsoft Docs - Azure DevOps Environments: [Deploy apps to environments](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops)
+5. Tech tip on resolving Azure DevOps Environment error related to ServiceAccount when targeting Kubernetes clusters version 1.24 and newer: [How to Fix ServiceAccount Error in Azure DevOps Environments for Kubernetes Clusters V.1.24 and Newer](https://kristhecodingunicorn.com/techtips/ado_sa_error/)
 
-4. AKS HTTP Application Routing add-on: [HTTP application routing](https://docs.microsoft.com/en-us/azure/aks/http-application-routing)
+6. Script for migration of Kubernetes resources to a new Azure DevOps Environment: https://github.com/guidemetothemoon/div-dev-resources/tree/main/scripts/kubernetes/ado-environments
+
+7. Microsoft Docs - Azure DevOps Environments: [Deploy apps to environments](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops)
+
+8. AKS HTTP Application Routing add-on: [HTTP application routing](https://docs.microsoft.com/en-us/azure/aks/http-application-routing)
 
 [^1]: Cat picture taken from Google Picture Search.
