@@ -39,3 +39,10 @@ This repo contains resources used for demos in my tech session **"DevSecOps for 
 17. Official Kubernetes CVE feed - a community maintained list of official CVEs announced by the Kubernetes Security Response Committee: [Kubernetes - Official CVE Feed](https://kubernetes.io/docs/reference/issues-security/official-cve-feed/)
 
 18. Cloud Native Security model overview for Kubernetes which defines a model of thinking about Kubernetes security in the context of Cloud Native Security: [Overview of Cloud Native Security](https://kubernetes.io/docs/concepts/security/overview/)
+
+**Some security tools that I would recommend checking out:**
+
+- Hadolint for Dockerfile linting: https://github.com/hadolint/hadolint
+- helm lint command of the Helm CLI to lint Helm charts: https://helm.sh/docs/helm/helm_lint/
+- Trivy by Aquasec to scan IaC, repositories, secrets, clusters and container images: https://github.com/aquasecurity/trivy
+- Kubescape, a really great tool which can become a Swiss Army Knife or a single pane of glass to scan all of your clusters for vulnerabilities, for compliance with security standards, in addition to RBAC Visualizer with more functionality to explore: https://github.com/kubescape/kubescape
