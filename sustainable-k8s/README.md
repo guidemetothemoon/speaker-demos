@@ -24,3 +24,5 @@ This repo contains resources used for demos in my tech session **"Be the Change 
 9. Machine Learning Emissions Calculator: [https://mlco2.github.io/impact/#compute](https://mlco2.github.io/impact/#compute)
 
 10. Cast.ai 2022 report "The State of Kubernetes Report: Overprovisioning in Real-Life Containerized Applications": [https://cast.ai/the-state-of-kubernetes-overprovisioning](https://cast.ai/the-state-of-kubernetes-overprovisioning)
+
+11. Microsoft Sustainable Software blog post "Carbon-Aware Kubernetes": [https://devblogs.microsoft.com/sustainable-software/carbon-aware-kubernetes](https://devblogs.microsoft.com/sustainable-software/carbon-aware-kubernetes)
