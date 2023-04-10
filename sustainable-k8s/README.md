@@ -26,3 +26,9 @@ This repo contains resources used for demos in my tech session **"Be the Change 
 10. Cast.ai 2022 report "The State of Kubernetes Report: Overprovisioning in Real-Life Containerized Applications": [https://cast.ai/the-state-of-kubernetes-overprovisioning](https://cast.ai/the-state-of-kubernetes-overprovisioning)
 
 11. Microsoft Sustainable Software blog post "Carbon-Aware Kubernetes": [https://devblogs.microsoft.com/sustainable-software/carbon-aware-kubernetes](https://devblogs.microsoft.com/sustainable-software/carbon-aware-kubernetes)
+
+12. International Energy Agency report "Data Centres and Data Transmission Networks": [https://www.iea.org/reports/data-centres-and-data-transmission-networks](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
+
+13. Climatiq Data Explorer: [https://www.climatiq.io/data](https://www.climatiq.io/data)
+
+14. 
