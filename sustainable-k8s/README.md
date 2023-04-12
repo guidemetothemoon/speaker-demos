@@ -29,6 +29,12 @@ This repo contains resources used for demos in my tech session **"Be the Change 
 
 12. International Energy Agency report "Data Centres and Data Transmission Networks": [https://www.iea.org/reports/data-centres-and-data-transmission-networks](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
 
-13. Climatiq Data Explorer: [https://www.climatiq.io/data](https://www.climatiq.io/data)
+13. Climatiq Data Explorer - a fully transparent dataset of up-to-date and verified emission factors: [https://www.climatiq.io/data](https://www.climatiq.io/data)
 
-14. 
+14. SINTEF blog "This is how we reduce data centres carbon footprint": [https://blog.sintef.com/sintefenergy/this-is-how-we-reduce-data-centers-carbon-footprint/](https://blog.sintef.com/sintefenergy/this-is-how-we-reduce-data-centers-carbon-footprint/)
+
+15. Software Carbon Intensity (SCI) specification by Green Software Foundation: [https://github.com/Green-Software-Foundation/sci/blob/dev/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md](https://github.com/Green-Software-Foundation/sci/blob/dev/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md)
+
+16. Principles of Green Software Engineering: [https://principles.green](https://principles.green)
+
+17. "A low carbon Kubernetes scheduler" research paper: [https://ceur-ws.org/Vol-2382/ICT4S2019_paper_28.pdf](https://ceur-ws.org/Vol-2382/ICT4S2019_paper_28.pdf)
