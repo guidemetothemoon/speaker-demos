@@ -38,3 +38,19 @@ This repo contains resources used for demos in my tech session **"Be the Change 
 16. Principles of Green Software Engineering: [https://principles.green](https://principles.green)
 
 17. "A low carbon Kubernetes scheduler" research paper: [https://ceur-ws.org/Vol-2382/ICT4S2019_paper_28.pdf](https://ceur-ws.org/Vol-2382/ICT4S2019_paper_28.pdf)
+
+18. "EcoDataCenter" - climate-positive data center service provider from Sweden: [https://ecodatacenter.tech/data-center](https://ecodatacenter.tech/data-center)
+
+19. https://github.com/sustainable-computing-io
+
+20. https://github.com/Green-Software-Foundation
+
+21. https://github.com/cncf/tag-env-sustainability
+
+22. https://kube-green.dev
+
+23. https://karpenter.sh
+
+24. https://keda.sh
+
+25. https://github.com/open-gitops/project/discussions/104
