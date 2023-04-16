@@ -23,9 +23,9 @@ This repo contains resources used for demos in my tech session **"Be the Change 
 
 9. Machine Learning Emissions Calculator: [https://mlco2.github.io/impact/#compute](https://mlco2.github.io/impact/#compute)
 
-10. Cast.ai 2022 report "The State of Kubernetes Report: Overprovisioning in Real-Life Containerized Applications": [https://cast.ai/the-state-of-kubernetes-overprovisioning](https://cast.ai/the-state-of-kubernetes-overprovisioning)
+10. Software Carbon Intensity (SCI) specification by Green Software Foundation: [https://github.com/Green-Software-Foundation/sci/blob/dev/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md](https://github.com/Green-Software-Foundation/sci/blob/dev/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md)
 
-11. Microsoft Sustainable Software blog post "Carbon-Aware Kubernetes": [https://devblogs.microsoft.com/sustainable-software/carbon-aware-kubernetes](https://devblogs.microsoft.com/sustainable-software/carbon-aware-kubernetes)
+11. "EcoDataCenter" - climate-positive data center service provider from Sweden: [https://ecodatacenter.tech/data-center](https://ecodatacenter.tech/data-center)
 
 12. International Energy Agency report "Data Centres and Data Transmission Networks": [https://www.iea.org/reports/data-centres-and-data-transmission-networks](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
 
@@ -33,24 +33,24 @@ This repo contains resources used for demos in my tech session **"Be the Change 
 
 14. SINTEF blog "This is how we reduce data centres carbon footprint": [https://blog.sintef.com/sintefenergy/this-is-how-we-reduce-data-centers-carbon-footprint/](https://blog.sintef.com/sintefenergy/this-is-how-we-reduce-data-centers-carbon-footprint/)
 
-15. Software Carbon Intensity (SCI) specification by Green Software Foundation: [https://github.com/Green-Software-Foundation/sci/blob/dev/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md](https://github.com/Green-Software-Foundation/sci/blob/dev/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md)
+15. Cast.ai 2022 report "The State of Kubernetes Report: Overprovisioning in Real-Life Containerized Applications": [https://cast.ai/the-state-of-kubernetes-overprovisioning](https://cast.ai/the-state-of-kubernetes-overprovisioning)
 
-16. Principles of Green Software Engineering: [https://principles.green](https://principles.green)
+16. Microsoft Sustainable Software blog post "Carbon-Aware Kubernetes": [https://devblogs.microsoft.com/sustainable-software/carbon-aware-kubernetes](https://devblogs.microsoft.com/sustainable-software/carbon-aware-kubernetes)
 
 17. "A low carbon Kubernetes scheduler" research paper: [https://ceur-ws.org/Vol-2382/ICT4S2019_paper_28.pdf](https://ceur-ws.org/Vol-2382/ICT4S2019_paper_28.pdf)
 
-18. "EcoDataCenter" - climate-positive data center service provider from Sweden: [https://ecodatacenter.tech/data-center](https://ecodatacenter.tech/data-center)
+18. Principles of Green Software Engineering: [https://principles.green](https://principles.green)
 
-19. https://github.com/sustainable-computing-io
+19. Sustainable Computing organization on GitHub: [https://github.com/sustainable-computing-io](https://github.com/sustainable-computing-io)
 
-20. https://github.com/Green-Software-Foundation
+20. Green Software Foundation organization on GitHub: [https://github.com/Green-Software-Foundation](https://github.com/Green-Software-Foundation)
 
-21. https://github.com/cncf/tag-env-sustainability
+21. CNCF TAG Environmental Sustainability on GitHub: [https://github.com/cncf/tag-env-sustainability](https://github.com/cncf/tag-env-sustainability)
 
-22. https://kube-green.dev
+22. kube-green tool: [https://kube-green.dev](https://kube-green.dev)
 
-23. https://karpenter.sh
+23. Karpenter tool: [https://karpenter.sh](https://karpenter.sh)
 
-24. https://keda.sh
+24. Keda tool: [https://keda.sh](https://keda.sh)
 
-25. https://github.com/open-gitops/project/discussions/104
+25. GitOps impacts on environmental sustainability discussion on GitHub:[https://github.com/open-gitops/project/discussions/104](https://github.com/open-gitops/project/discussions/104)
