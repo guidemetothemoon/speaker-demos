@@ -54,3 +54,11 @@ This repo contains resources used for demos in my tech session **"Be the Change 
 24. Keda tool: [https://keda.sh](https://keda.sh)
 
 25. GitOps impacts on environmental sustainability discussion on GitHub:[https://github.com/open-gitops/project/discussions/104](https://github.com/open-gitops/project/discussions/104)
+
+26. Sustainable software engineering in AKS guidance: [https://learn.microsoft.com/en-us/azure/aks/concepts-sustainable-software-engineering](https://learn.microsoft.com/en-us/azure/aks/concepts-sustainable-software-engineering)
+
+27. Optimizing AWS infrastructure for sustainability 3-part guidance: [https://aws.amazon.com/blogs/architecture/optimizing-your-aws-infrastructure-for-sustainability-part-i-compute/](https://aws.amazon.com/blogs/architecture/optimizing-your-aws-infrastructure-for-sustainability-part-i-compute/)
+
+28. Google Architecture Framework - Design for sustainability: [https://cloud.google.com/architecture/framework/system-design/sustainability](https://cloud.google.com/architecture/framework/system-design/sustainability)
+
+29. Article by Red Hat "5 ways to build sustainability into your software architecture": [https://www.redhat.com/architect/sustainable-software-architecture](https://www.redhat.com/architect/sustainable-software-architecture)
