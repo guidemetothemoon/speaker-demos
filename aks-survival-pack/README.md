@@ -45,3 +45,11 @@ This repo contains resources used for demos in my tech session **"AKS Survival P
 19. KubeInvaders - Gamified chaos engineering tool for Kubernetes: [KubeInvaders](https://github.com/lucky-sideburn/KubeInvaders)
 
 20. Kubernetes Goat - Intentionally vulnerable Kubernetes cluster: [Kubernetes Goat](https://madhuakula.com/kubernetes-goat)  
+
+21. Success story from VCA, one of the largest pet healthcare companies in the United States, about migrating to Azure and AKS: [Pet care leader turns monolithic app into a global distributed solution on Azure](https://customers.microsoft.com/de-DE/story/815549-pet-care-leader-turns-monolith-app-into-a-global-distributed-solution-on-azure)
+
+22. Draft - an open source tool to generate Kubernetes-related deployment files like Dockerfile and Helm chart: [Draft for Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/draft)
+
+23. Bridge to Kubernetes - an iterative development tool, that is available for Visual Studio and Visual Studio Code (VS Code), for authoring microservice applications that target Kubernetes: [How Bridge to Kubernetes works](https://learn.microsoft.com/en-us/visualstudio/bridge/overview-bridge-to-kubernetes)
+
+24. Shadowserver's daily dashboard that represents scan results for exposed Kubernetes API servers: [Latest Kubernetes API scan results on the Shadowserver Dashboard](https://dashboard.shadowserver.org/statistics/combined/time-series/?date_range=7&source=population&source=population6&source=scan&source=scan6&tag=kubernetes&group_by=geo&style=stacked)
