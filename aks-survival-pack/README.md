@@ -53,3 +53,5 @@ This repo contains resources used for demos in my tech session **"AKS Survival P
 23. Bridge to Kubernetes - an iterative development tool, that is available for Visual Studio and Visual Studio Code (VS Code), for authoring microservice applications that target Kubernetes: [How Bridge to Kubernetes works](https://learn.microsoft.com/en-us/visualstudio/bridge/overview-bridge-to-kubernetes)
 
 24. Shadowserver's daily dashboard that represents scan results for exposed Kubernetes API servers: [Latest Kubernetes API scan results on the Shadowserver Dashboard](https://dashboard.shadowserver.org/statistics/combined/time-series/?date_range=7&source=population&source=population6&source=scan&source=scan6&tag=kubernetes&group_by=geo&style=stacked)
+
+25. Sustainability guidance for AKS: [Sustainable software engineering practices in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/concepts-sustainable-software-engineering)
