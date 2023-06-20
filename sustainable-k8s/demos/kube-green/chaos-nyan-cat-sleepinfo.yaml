@@ -1,0 +1,13 @@
+apiVersion: kube-green.com/v1alpha1
+kind: SleepInfo
+metadata:
+  name: chaos-nyan-cat-sleep
+spec:
+  weekdays: "*"
+  sleepAt: "16:03"
+  wakeUpAt: "16:05"
+  timeZone: "Europe/Oslo"
+  excludeRef:
+    - apiVersion: "apps/v1"
+      kind: Deployment
+      name: chaos-nyan-cat-critical

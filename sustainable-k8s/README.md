@@ -1,6 +1,6 @@
 # Introduction
 
-This repo contains resources used for demos in my tech session **"Be the Change Our Planet Seeks: How YOU Can Contribute to Running Environment-Friendly Workloads on Kubernetes"**.
+This repo contains additional resources for my tech session **"Be the Change Our Planet Seeks: How YOU Can Contribute to Running Environment-Friendly Workloads on Kubernetes"** or **"Sustainable Kubernetes and how YOU can make an impact"**.
 
 
 # Useful resources
@@ -62,3 +62,9 @@ This repo contains resources used for demos in my tech session **"Be the Change 
 28. Google Architecture Framework - Design for sustainability: [https://cloud.google.com/architecture/framework/system-design/sustainability](https://cloud.google.com/architecture/framework/system-design/sustainability)
 
 29. Article by Red Hat "5 ways to build sustainability into your software architecture": [https://www.redhat.com/architect/sustainable-software-architecture](https://www.redhat.com/architect/sustainable-software-architecture)
+
+30. Scaphandre tool: [Scaphandre](https://github.com/hubblo-org/scaphandre)
+
+31. Carbon-Aware KEDA Operator: [Carbon Aware KEDA Operator](https://github.com/Azure/carbon-aware-keda-operator/tree/main)
+
+32. Intergovernmental Panel on Climate Change (IPCC) latest climate crisis report from March 2023: [AR6 Synthesis Report on Climate Change 2023](https://www.ipcc.ch/report/ar6/syr)

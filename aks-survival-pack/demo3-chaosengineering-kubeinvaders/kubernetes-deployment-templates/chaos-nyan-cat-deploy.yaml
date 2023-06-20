@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: chaos-nyan-cat
+  name: chaos-nyan-cat-noncritical
   namespace: chaos-nyan-cat
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: chaos-nyan-cat
@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: chaos-nyan-cat
+  name: chaos-nyan-cat-noncritical
   namespace: chaos-nyan-cat
 spec:
   type: ClusterIP
